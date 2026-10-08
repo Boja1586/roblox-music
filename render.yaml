@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: roblox-music
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: AUTH_TOKEN
+        generateValue: true
+      - key: PUBLIC_URL
+        sync: false
+      - key: DATA_DIR
+        value: /data
+    disk:
+      name: music-data
+      mountPath: /data
+      sizeGB: 1
